@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Swordfight!! Launcher</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    .launch-button {
+      margin-top: 100px;
+      padding: 20px 40px;
+      font-size: 24px;
+      background: #444;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #game-frame {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      display: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Swordfight!!</h1>
+  <button class="launch-button" onclick="launchGame()">Play Fullscreen</button>
+
+  <iframe id="game-frame" src="https://itch.io/embed-upload/123456?color=333333"></iframe>
+
+  <script>
+    function launchGame() {
+      document.getElementById('game-frame').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('game-frame').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+</html>
